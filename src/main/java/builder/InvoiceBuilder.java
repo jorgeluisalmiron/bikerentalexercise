@@ -37,11 +37,6 @@ public class InvoiceBuilder {
         return this;
     }
 
-    public InvoiceBuilder clientName(String clientName){
-        this.invoice.setClientName(clientName);
-        return this;
-    }
-
     public InvoiceBuilder addPoinOfSale(String pointOfSale){
         this.invoice.setPointOfSale(pointOfSale);
         return this;
@@ -70,8 +65,8 @@ public class InvoiceBuilder {
         List<Promotion> listOfPromotions = promotionsRepository.getListOfPromotions();
          for (Promotion promotion : listOfPromotions) {
             if (promotion.getPromoType().equals(PromoTypesEnum.OVER_TOTAL_BY_QUANTITY)) {
-                List<InvoiceDetail> invoiceDetails = this.invoice.getInvoiceDetails();
-                int quantity = invoiceDetails.stream().filter(item -> item.getProduct().getCode()==promotion.getProductCode()).mapToInt(item->item.getQuantity()).sum();
+                List<InvoiceItem> invoiceItems = this.invoice.getInvoiceItems();
+                int quantity = invoiceItems.stream().filter(item -> item.getProduct().getCode()==promotion.getProductCode()).mapToInt(item->item.getQuantity()).sum();
                 if (quantity>= promotion.getMin() && quantity<= promotion.getMax()){
                     double discounts = invoice.getTotalWithOutDiscounts()*promotion.getPercentege()/100;
                     invoice.setTotalOfDiscounts(discounts);
@@ -99,14 +94,14 @@ public class InvoiceBuilder {
         double price = priceListItem.getPrice();
 
 
-        InvoiceDetail invoiceDetail = new InvoiceDetail();
-        invoiceDetail.setProduct(product);
-        invoiceDetail.setQuantity(quantity);
-        invoiceDetail.setUnitPrice(price);
-        invoiceDetail.setTimes(times);
-        invoiceDetail.setUom(uom);
+        InvoiceItem invoiceItem = new InvoiceItem();
+        invoiceItem.setProduct(product);
+        invoiceItem.setQuantity(quantity);
+        invoiceItem.setUnitPrice(price);
+        invoiceItem.setTimes(times);
+        invoiceItem.setUom(uom);
 
-        invoice.getInvoiceDetails().add(invoiceDetail);
+        invoice.getInvoiceItems().add(invoiceItem);
 
         return this;
     }

@@ -16,12 +16,12 @@ public class Invoice {
     private LocalDate date;
     private String clientName;
     private String taxCondition;
-    private List<InvoiceDetail> invoiceDetails = new ArrayList<>();
+    private List<InvoiceItem> invoiceItems = new ArrayList<>();
     private double totalOfDiscounts;
 
 
     public double getTotalWithOutDiscounts(){
-        return invoiceDetails.stream().mapToDouble(invoiceDetail -> invoiceDetail.getTotal()).sum();
+        return invoiceItems.stream().mapToDouble(invoiceItem -> invoiceItem.getTotal()).sum();
     }
 
     public double getTotal(){

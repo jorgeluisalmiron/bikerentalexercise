@@ -347,7 +347,7 @@ public class InvoiceBuilderTest {
         try {
             invoiceBuilder.addProduct(product.getCode(),2,1,UnitOfMeasureEnum.DAY);
             Invoice invoice = invoiceBuilder.getInvoice();
-            assertEquals(product,invoice.getInvoiceDetails().get(0).getProduct());
+            assertEquals(product,invoice.getInvoiceItems().get(0).getProduct());
 
         }
         catch (PriceNotExistsException e) {

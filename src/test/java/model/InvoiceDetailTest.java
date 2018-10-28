@@ -15,7 +15,7 @@ public class InvoiceDetailTest {
     private static final int TIMES = 2;
     private static final int QUANTITY = 2;
     private Product product;
-    private InvoiceDetail invoiceDetail;
+    private InvoiceItem invoiceItem;
 
     @Before
     public void setUp(){
@@ -24,19 +24,19 @@ public class InvoiceDetailTest {
         product.setName("Generic Bike");
         product.setCategory("BIKES");
 
-        invoiceDetail = new InvoiceDetail();
-        invoiceDetail.setProduct(product);
+        invoiceItem = new InvoiceItem();
+        invoiceItem.setProduct(product);
     }
     @Test
     public void testGetters(){
         final double exceptedTotal = UNIT_PRICE * TIMES * QUANTITY;
-        invoiceDetail.setUnitPrice(UNIT_PRICE);
-        invoiceDetail.setTimes(TIMES);
-        invoiceDetail.setQuantity(QUANTITY);
-        assertEquals(invoiceDetail.getProduct(),this.product);
-        assertEquals(invoiceDetail.getQuantity(), QUANTITY);
-        assertEquals(invoiceDetail.getTimes(), TIMES);
-        assertEquals(invoiceDetail.getUnitPrice(), UNIT_PRICE,0);
-        assertEquals(invoiceDetail.getTotal(),exceptedTotal,0);
+        invoiceItem.setUnitPrice(UNIT_PRICE);
+        invoiceItem.setTimes(TIMES);
+        invoiceItem.setQuantity(QUANTITY);
+        assertEquals(invoiceItem.getProduct(),this.product);
+        assertEquals(invoiceItem.getQuantity(), QUANTITY);
+        assertEquals(invoiceItem.getTimes(), TIMES);
+        assertEquals(invoiceItem.getUnitPrice(), UNIT_PRICE,0);
+        assertEquals(invoiceItem.getTotal(),exceptedTotal,0);
     }
 }

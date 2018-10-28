@@ -26,7 +26,7 @@ public class InvoiceTest {
     @Test
     public void testInvoiceTotalWithoutDiscounts(){
         final double expectedTotal = UNIT_PRICE_ITEM_1 + UNIT_PRICE_ITEM_2;
-        invoice.setInvoiceDetails(this.getInvoiceDetailsList());
+        invoice.setInvoiceItems(this.getInvoiceDetailsList());
         Assert.assertEquals(invoice.getTotal(),expectedTotal,0);
         Assert.assertEquals(invoice.getTotalWithOutDiscounts(),expectedTotal,0);
 
@@ -36,28 +36,28 @@ public class InvoiceTest {
     public void testInvoiceTotalWithDiscounts(){
         final double expectedTotal = UNIT_PRICE_ITEM_1 + UNIT_PRICE_ITEM_2 - DISCOUNT;
         final double expectedeTotalWithoutDiscounts = UNIT_PRICE_ITEM_1 + UNIT_PRICE_ITEM_2;
-        invoice.setInvoiceDetails(this.getInvoiceDetailsList());
+        invoice.setInvoiceItems(this.getInvoiceDetailsList());
         invoice.setTotalOfDiscounts(DISCOUNT);
         Assert.assertEquals(invoice.getTotal(),expectedTotal,0);
         Assert.assertEquals(invoice.getTotalWithOutDiscounts(),expectedeTotalWithoutDiscounts,0);
     }
 
 
-    private List<InvoiceDetail> getInvoiceDetailsList(){
-        InvoiceDetail invoiceDetail1 = new InvoiceDetail();
-        invoiceDetail1.setQuantity(1);
-        invoiceDetail1.setTimes(1);
-        invoiceDetail1.setUnitPrice(UNIT_PRICE_ITEM_1);
+    private List<InvoiceItem> getInvoiceDetailsList(){
+        InvoiceItem invoiceItem1 = new InvoiceItem();
+        invoiceItem1.setQuantity(1);
+        invoiceItem1.setTimes(1);
+        invoiceItem1.setUnitPrice(UNIT_PRICE_ITEM_1);
 
-        InvoiceDetail invoiceDetail2= new InvoiceDetail();
-        invoiceDetail2.setQuantity(1);
-        invoiceDetail2.setTimes(1);
-        invoiceDetail2.setUnitPrice(UNIT_PRICE_ITEM_2);
+        InvoiceItem invoiceItem2 = new InvoiceItem();
+        invoiceItem2.setQuantity(1);
+        invoiceItem2.setTimes(1);
+        invoiceItem2.setUnitPrice(UNIT_PRICE_ITEM_2);
 
-        List<InvoiceDetail> invoiceDetails = new ArrayList<>();
-        invoiceDetails.add(invoiceDetail1);
-        invoiceDetails.add(invoiceDetail2);
+        List<InvoiceItem> invoiceItems = new ArrayList<>();
+        invoiceItems.add(invoiceItem1);
+        invoiceItems.add(invoiceItem2);
 
-        return invoiceDetails;
+        return invoiceItems;
     }
 }
