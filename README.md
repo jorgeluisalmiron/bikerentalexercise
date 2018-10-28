@@ -13,7 +13,6 @@ The tests are made using Mockito Framework. To execute all tests, please run: <b
 
 ## Tests coverage
 To ensure a 85% of test coverage I used OpenClover. To verify it, you could run: <br /> <br />
-&nbsp;&nbsp;&nbsp;**mvn install**<br /> or <br />
 &nbsp;&nbsp;&nbsp;**mvn clover:instrument clover:check  -Dmaven.clover.failOnViolation=false**
 <br /> <br />
 This solution doesn´t include any report of test coverage
