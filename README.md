@@ -16,7 +16,7 @@ Also, the solution propose to use three repositories (which are not implemented,
 - PromotionsRepository
 <br>
 Unit of measures and Promo Types was included as an enumerated, although it could have been included as a repositories.
-<br>
+<br><br>
 The class InvoiceBuilder includes all the logic to create an invoice, add products and calculate promotions.
 <br><br>
 This way I could add a product called “Bike”, three unit of measures like ‘DAY’, ‘WEEK’ and ‘HOUR’ and a price list to get prices by product and unit of measure. <br /> <br>
