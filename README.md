@@ -10,7 +10,7 @@ These are the modeling classes used: <br>
 - Product
 - Promotion
 
-Also, the solution propose to use three repositories (which are not implemented, only an interface is included) <br>
+Also, the solution propose to use three repositories (which are not implemented, only interface was included) <br>
 - PriceListRepository
 - ProductRepository
 - PromotionsRepository
