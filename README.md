@@ -3,7 +3,7 @@
 ## Design
 
 The solution was thought as an invoicing application which manages a product catalog, different unit of measures, a price list and promotion rules. <br />
-This way I could add a product called “Bike”, three unit of measures like ‘DAY’, ‘WEEK’ and ‘HOUR’ and a price list to get prices by product  and unit of measure. <br /> 
+This way I could add a product called “Bike”, three unit of measures like ‘DAY’, ‘WEEK’ and ‘HOUR’ and a price list to get prices by product and unit of measure. <br /> 
 If I would like, by example, I could add a new promotion called “Family Rental” which consider a discount of 30% with a range of 3 to 5 bikes by rental.<br />
 
 
